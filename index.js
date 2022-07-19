@@ -11,7 +11,7 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://https://prechat.netlify.app",
+    origin: "https://prechat.netlify.app",
   },
 });
 
