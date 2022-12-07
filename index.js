@@ -16,18 +16,23 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
+  
   socket.on("register", (data) => {
     socket.join(data.room);
   });
+  
   socket.on("join", (data)=>{
     socket.join(data)
   })
+  
   socket.on("sendMessage", (data) => {
     io.emit("receiveMessage", data);
   });
+  
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
+  
 });
 
 httpServer.listen(process.env.PORT || 5000, () => {
